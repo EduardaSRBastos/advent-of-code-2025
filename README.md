@@ -9,8 +9,7 @@
 | Day 1 | Day 2 | Day 3 | Day 4 | Day 5 | Day 6 |
 |-------|-------|-------|-------|-------|-------|
 | <p align="center">[⭐](#day-1)</p> | <p align="center">[⭐](#day-2)</p> | <p align="center">[⭐](#day-3)</p> | <p align="center">[⭐](#day-4)</p> | <p align="center">[⭐](#day-5)</p> | <p align="center">[⭐](#day-6)</p> |
-| Day 7 | Day 8 | Day 9 | Day 10 | Day 11 | Day 12 |
--------|-------|-------|-------|-------|-------|
+| **Day 7** | **Day 8** | **Day 9** | **Day 10** | **Day 11** | **Day 12** |
 | <p align="center">[⭐](#day-7)</p> | <p align="center">[⭐](#day-8)</p> | <p align="center">[⭐](#day-9)</p> | <p align="center">[⭐](#day-10)</p> | <p align="center">[⭐](#day-11)</p> | <p align="center">[⭐](#day-12)</p> |
 
 
