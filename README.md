@@ -113,4 +113,7 @@ process.stdin.on('end', () => {
 
 <br>
 
+## Other years
+[2024 - Dataweave](https://github.com/EduardaSRBastos/advent-of-code-2024)
+
 ‎<h2 align="right">[▲](#advent-of-code-2025---javascript-edition)</h2>
