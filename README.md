@@ -17,7 +17,7 @@
 
 ## ⭐Day 1
 
-### Part 1
+### [Part 1](https://onecompiler.com/javascript/446m4eupp)
 
 <details>
   <summary>Code</summary>
@@ -65,7 +65,7 @@ process.stdin.on('end', () => {
 ```
 </details>
 
-### Part 2
+### [Part 2](https://onecompiler.com/javascript/446m4dhjt)
 
 <details>
   <summary>Code</summary>
@@ -115,7 +115,7 @@ process.stdin.on('end', () => {
 
 ## ⭐Day 2
 
-### Part 1
+### [Part 1](https://onecompiler.com/javascript/446m4gnnc)
 
 <details>
   <summary>Code</summary>
@@ -153,7 +153,7 @@ process.stdin.on('end', () => {
 ```
 </details>
 
-### Part 2
+### [Part 2](https://onecompiler.com/javascript/446m4jeav)
 
 <details>
   <summary>Code</summary>
@@ -202,7 +202,7 @@ process.stdin.on('end', () => {
 
 ## ⭐Day 3
 
-### Part 1
+### [Part 1](https://onecompiler.com/javascript/446m4kqgy)
 
 <details>
   <summary>Code</summary>
@@ -255,7 +255,7 @@ process.stdin.on('end', () => {
 ```
 </details>
 
-### Part 2
+### [Part 2](https://onecompiler.com/javascript/446m4myrs)
 
 <details>
   <summary>Code</summary>
@@ -314,7 +314,7 @@ process.stdin.on('end', () => {
 
 ## ⭐Day 4
 
-### Part 1
+### [Part 1](https://onecompiler.com/javascript/446m4pp2g)
 
 <details>
   <summary>Code</summary>
@@ -367,7 +367,7 @@ process.stdin.on('end', () => {
 ```
 </details>
 
-### Part 2
+### [Part 2](https://onecompiler.com/javascript/446m4qhst)
 
 <details>
   <summary>Code</summary>

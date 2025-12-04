@@ -1,11 +1,20 @@
-let input = '';
+const readline = require("readline");
 
-process.stdin.on('data', chunk => {
-  input += chunk;
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
 });
 
-process.stdin.on('end', () => {
-  const banks = input.split("\n");
+console.log("Enter input (press Enter then Ctrl+D when done):");
+
+let input = '';
+
+rl.on("line", line => {
+  if (line.trim()) input += line + '\n';
+});
+
+rl.on("close", () => {
+  const banks = input.split("\n").filter(Boolean);
 
   const batteries = banks.map(battery => {        
     const nums = battery.split("").map(Number);  

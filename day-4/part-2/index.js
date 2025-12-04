@@ -1,10 +1,19 @@
-let input = '';
+const readline = require("readline");
 
-process.stdin.on('data', chunk => {
-  input += chunk;
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
 });
 
-process.stdin.on('end', () => {
+console.log("Enter input (press Enter then Ctrl+D when done):");
+
+let input = '';
+
+rl.on("line", line => {
+  if (line.trim()) input += line + '\n';
+});
+
+rl.on("close", () => {
   const payload = input.split("\n").map(row => row.split(""));
 
   const dirs = [
