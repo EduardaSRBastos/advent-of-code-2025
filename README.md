@@ -428,6 +428,95 @@ process.stdin.on('end', () => {
 
 <br>
 
+## ⭐Day 5
+
+### [Part 1](https://onecompiler.com/javascript/446nvxarq)
+
+<details>
+  <summary>Code</summary>
+
+```javascript
+let input = '';
+
+process.stdin.on('data', chunk => {
+  input += chunk;
+});
+
+process.stdin.on('end', () => {
+  const payload = input.split("\n");
+  const range = payload.slice(0, payload.indexOf(""));
+  const ids = payload.slice(payload.indexOf("")).filter(a=>a!="");
+
+  let freshIds = [];
+
+  for(let i = 0; i < ids.length; i++) {
+    for(let r = 0; r < range.length; r++) {
+      let min = BigInt(range[r].slice(0, range[r].indexOf("-")));
+      let max = BigInt(range[r].slice(range[r].indexOf("-")).replace("-",""));
+      
+      if (ids[i] >= min && ids[i] <= max) {
+        freshIds.push(ids[i]); 
+        break;
+      }
+    }
+  }
+
+  console.log('Answer: ', freshIds.length);
+});
+
+```
+</details>
+
+### [Part 2](https://onecompiler.com/javascript/446p5qjqw)
+
+<details>
+  <summary>Code</summary>
+
+```javascript
+let input = '';
+
+process.stdin.on('data', chunk => {
+  input += chunk;
+});
+
+process.stdin.on('end', () => {
+  const payload = input.split("\n");
+  const range = payload.slice(0, payload.indexOf(""));
+
+  const ranges = range.map(r => {
+    let min = BigInt(r.slice(0, r.indexOf("-")));
+    let max = BigInt(r.slice(r.indexOf("-") + 1));
+    return { min, max };
+  });
+
+  ranges.sort((a,b) => (a.min < b.min ? -1 : 1));
+
+  let lastMax = -1n;
+  let total = 0n;
+
+  for (let r = 0; r < ranges.length; r++) {
+    let min = ranges[r].min;
+    let max = ranges[r].max;
+  
+    if (min <= lastMax) 
+      min = lastMax + 1n;
+    
+  
+    if (max >= min) 
+      total = total + max - min + 1n;
+  
+    if (max > lastMax) 
+      lastMax = max;
+  }
+
+  console.log('Answer: ', total.toString());
+});
+
+```
+</details>
+
+<br>
+
 ## Other years
 [2024 - Dataweave](https://github.com/EduardaSRBastos/advent-of-code-2024)
 
