@@ -517,6 +517,50 @@ process.stdin.on('end', () => {
 
 <br>
 
+## ⭐Day 6
+
+### [Part 1](https://onecompiler.com/javascript/446shgyaj)
+
+<details>
+  <summary>Code</summary>
+
+```javascript
+let input = '';
+
+process.stdin.on('data', chunk => {
+  input += chunk;
+});
+
+process.stdin.on('end', () => {
+  const payload = input.trimEnd().split("\n");
+  const op = payload[payload.length-1].match(/[+*]/g);
+  const nums = payload.slice(0, payload.length-1).map(row => row.match(/\d+/g));
+
+  let problems = [];
+    
+  for (let o = 0; o < op.length; o++) {
+    let group = [];
+    for (let n = 0; n < nums.length; n++) {
+      group.push(nums[n][o]+ op[o]);
+    }
+    problems.push(eval(group.join("").slice(0, -1)))
+  }
+  
+  let sum = 0;
+  problems.map (p => sum += p);
+
+  console.log('Answer: ', sum);
+  console.log('Problems: ', problems);
+});
+
+```
+</details>
+
+### [Part 2] TO-DO
+
+<br>
+
+
 ## Other years
 [2024 - Dataweave](https://github.com/EduardaSRBastos/advent-of-code-2024)
 
