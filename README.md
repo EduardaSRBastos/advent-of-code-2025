@@ -721,6 +721,142 @@ process.stdin.on('end', () => {
 
 <br>
 
+## ⭐Day 8
+
+### [Part 1](https://onecompiler.com/javascript/446ywaeym)
+
+<details>
+  <summary>Code</summary>
+
+```javascript
+let input = '';
+
+process.stdin.on('data', chunk => {
+  input += chunk;
+});
+
+process.stdin.on('end', () => {
+  const payload = input.trimEnd().split("\n");
+  const coords = payload.map(a => {
+    const [x,y,z] = a.split(",").map(Number);
+    return { x, y, z };
+  });
+
+  let dists = [];
+  
+  for(let i = 0; i < coords.length; i++) {
+    for(let j = i+1; j <= coords.length - 1; j++) {
+      const dist = Math.hypot(coords[j].x - coords[i].x, coords[j].y - coords[i].y , coords[j].z - coords[i].z);
+      
+      dists.push({dist: dist, i: i, j: j});
+    }
+  }
+  
+  dists.sort((a, b) => a.dist - b.dist);
+  const slicedDists = dists.slice(0, 10);
+  
+  let circuits = [];
+  
+  for (let d = 0; d < coords.length; d++) {
+    circuits.push([d]);
+  }
+  
+  let conn = 0;
+  
+  for(d of slicedDists) {
+    let ci = null;
+    let cj = null;
+    
+    for(c of circuits) {
+      if(c.includes(d.i)) ci = c;
+      if(c.includes(d.j)) cj = c;
+    }
+      
+    if (ci != cj) {
+      circuits = circuits.filter(c => c != ci && c != cj);
+      circuits.push([...ci, ...cj]);
+      conn++;
+    }
+  }
+  
+  let sizes = circuits.map(c => c.length);
+  sizes.sort((a,b) => b-a);
+  
+  console.log('Answer: ', sizes[0] * sizes[1] * sizes[2]);
+  console.log('Sizes: ', sizes);
+});
+```
+</details>
+
+### [Part 2](https://onecompiler.com/javascript/446yx4hsk)
+
+<details>
+  <summary>Code</summary>
+
+```javascript
+let input = '';
+
+process.stdin.on('data', chunk => {
+  input += chunk;
+});
+
+process.stdin.on('end', () => {
+  const payload = input.trimEnd().split("\n");
+  const coords = payload.map(a => {
+    const [x,y,z] = a.split(",").map(Number);
+    return { x, y, z };
+  });
+
+  let dists = [];
+  
+  for(let i = 0; i < coords.length; i++) {
+    for(let j = i+1; j <= coords.length - 1; j++) {
+      const dist = Math.hypot(coords[j].x - coords[i].x, coords[j].y - coords[i].y , coords[j].z - coords[i].z);
+      
+      dists.push({dist: dist, i: i, j: j});
+    }
+  }
+  
+  dists.sort((a, b) => a.dist - b.dist);
+  
+  let circuits = [];
+  
+  for (let d = 0; d < coords.length; d++) {
+    circuits.push([d]);
+  }
+  
+  let circuits_count = coords.length;
+  let last_pair = [];
+
+  for(d of dists) {
+    let ci = null;
+    let cj = null;
+    
+    for(c of circuits) {
+      if(c.includes(d.i)) ci = c;
+      if(c.includes(d.j)) cj = c;
+    }
+      
+    if (ci != cj) {
+      circuits = circuits.filter(c => c != ci && c != cj);
+      circuits.push([...ci, ...cj]);
+      circuits_count--;
+      
+      last_pair = [d.i, d.j];
+      if (circuits_count == 1) break;
+    }
+  }
+  
+  console.log('Answer: ', coords[last_pair[0]].x * coords[last_pair[1]].x);
+  console.log('Last 1: ', coords[last_pair[0]].x);
+  console.log('Last 2: ', coords[last_pair[1]].x);
+});
+
+```
+</details>
+
+<br>
+
 ## Other years
 [2024 - Dataweave](https://github.com/EduardaSRBastos/advent-of-code-2024)
 
