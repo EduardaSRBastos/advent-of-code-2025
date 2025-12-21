@@ -857,6 +857,43 @@ process.stdin.on('end', () => {
 
 <br>
 
+## ⭐Day 9
+
+### [Part 1](https://onecompiler.com/javascript/44893jjh9)
+
+<details>
+  <summary>Code</summary>
+
+```javascript
+let input = '';
+
+process.stdin.on('data', chunk => {
+  input += chunk;
+});
+
+process.stdin.on('end', () => {
+  const payload = input.trimEnd().split("\n");
+  const coords = payload.map(line => line.split(",").map(Number));
+
+  let maxArea = 0;
+    
+  for (let i = 0; i < coords.length; i++) {
+    for (let j = 1; j < coords.length - 1; j++) {
+      let width  = Math.abs(coords[j][0] - coords[i][0]) + 1;
+      let height = Math.abs(coords[j][1] - coords[i][1]) + 1;
+      let area = width * height;
+      
+      if (area > maxArea) maxArea = area;
+    }
+  }
+  
+  console.log('Answer: ', maxArea);
+});
+```
+</details>
+
+<br>
+
 ## Other years
 [2024 - Dataweave](https://github.com/EduardaSRBastos/advent-of-code-2024)
 
